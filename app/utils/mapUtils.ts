@@ -237,8 +237,6 @@ export const initializeGoogleMap = async (
       // Update visibility when zoom changes
       map.addListener('zoom_changed', updateMarkerVisibility);
     });
-
-    let infoWindow: google.maps.InfoWindow;
     
     map.data.setStyle({
       fillColor: 'transparent',
@@ -312,10 +310,6 @@ export const initializeGoogleMap = async (
       const countryInfo = getCountryInfo(event.feature);
       onCountryClick(countryInfo);
       
-      // Close the hover info window if it's open
-      if (infoWindow) {
-        infoWindow.close();
-      }
     });
 
     // Load the GeoJSON data
